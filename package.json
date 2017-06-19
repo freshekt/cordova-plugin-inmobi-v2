@@ -1,0 +1,31 @@
+{
+  "name": "cordova-inmobi-sdk2",
+  "version": "6.2.3",
+  "description": "Add InMobi SDK to Cordova porject, as dependency for other plugins",
+  "cordova": {
+    "id": "cordova-inmobi-sdk2",
+    "platforms": [
+      "android",
+      "amazon-fireos",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dexus/cordova-inmobi-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dexus/cordova-inmobi-sdk/issues"
+  },
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "inmobi",
+    "rjfun",
+    "sdk"
+  ],
+  "author": {
+    "name": "Josef Fröhle"
+  },
+  "license": "MIT"
+}

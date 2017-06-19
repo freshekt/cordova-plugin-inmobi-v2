@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-inmobi-sdk2"
+        version="6.2.3">
+
+    <name>InMobi SDK for Cordova</name>
+    <description>Add InMobi SDK to Cordova porject, as dependency for other plugins</description>
+    <author>Facebook</author>
+    <keywords>dexus,cordova,inmobi,sdk</keywords>
+    <repo>https://github.com/Dexus/cordova-inmobi-sdk.git</repo>
+    <issue>https://github.com/Dexus/cordova-inmobi-sdk/issues</issue>
+
+    <engines>
+        <engine name="cordova" version=">=3.0" />
+    </engines>
+
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.inmobi.androidsdk.IMBrowserActivity"
+                      android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+                      android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                      android:hardwareAccelerated="true" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+          <uses-permission android:name="android.permission.INTERNET" />
+          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+          <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+          <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+          <uses-permission android:name="android.permission.CALL_PHONE" />
+          <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+          <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+          <uses-permission android:name="android.permission.VIBRATE" />
+          <uses-permission android:name="android.permission.RECORD_AUDIO" />
+          <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+          <uses-permission android:name="android.permission.READ_LOGS" />
+          <uses-permission android:name="android.permission.READ_CALENDAR"/>
+          <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+        </config-file>
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CDVAdInMobiPlugin">
+                <param name="android-package" value="com.deineagentur.cordova.ad.CDVAdInMobiPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/InMobi-6.2.3.jar" target-dir="libs" />
+     </platform>
+
+    <platform name="amazon-fireos">
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.inmobi.androidsdk.IMBrowserActivity"
+                      android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
+                      android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                      android:hardwareAccelerated="true" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+          <uses-permission android:name="android.permission.INTERNET" />
+          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+          <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+          <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+          <uses-permission android:name="android.permission.CALL_PHONE" />
+          <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+          <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+          <uses-permission android:name="android.permission.VIBRATE" />
+          <uses-permission android:name="android.permission.RECORD_AUDIO" />
+          <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+          <uses-permission android:name="android.permission.READ_LOGS" />
+          <uses-permission android:name="android.permission.READ_CALENDAR"/>
+          <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+        </config-file>
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CDVAdInMobiPlugin">
+                <param name="android-package" value="com.deineagentur.cordova.ad.CDVAdInMobiPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/InMobi-6.2.3.jar" target-dir="libs" />
+     </platform>
+
+     <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+          <feature name="CDVAdInMobiPlugin">
+            <param name="ios-package" value="CDVAdInMobiPlugin" />
+            <param name="onload" value="true" />
+          </feature>
+        </config-file>
+
+        <framework src="InMobiSDK.framework" custom="true"/>
+
+        <framework src="AdSupport.framework" />
+        <framework src="AudioToolbox.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="CoreBluetooth.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="CoreLocation.framework" />
+        <framework src="CoreMedia.framework" />
+        <framework src="CoreMotion.framework" />
+        <framework src="CoreTelephony.framework" />
+        <framework src="CoreVideo.framework" />
+        <framework src="EventKit.framework" />
+        <framework src="EventKitUI.framework" />
+        <framework src="Foundation.framework" />
+        <framework src="GLKit.framework" />
+        <framework src="MediaPlayer.framework" />
+        <framework src="MessageUI.framework" />
+        <framework src="OpenGLES.framework" />
+        <framework src="Social.framework" />
+        <framework src="Security.framework" />
+        <framework src="SafariServices.framework" />
+        <framework src="StoreKit.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="UIKit.framework" />
+
+        <framework src="libsqlite3.0.tbd" />
+        <framework src="libz.tbd" />
+    </platform>
+
+</plugin>
