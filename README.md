@@ -1,6 +1,8 @@
 
 # InMobi SDK for Cordova
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Dexus/cordova-plugin-inmobi-v2.svg)](https://greenkeeper.io/)
+
 This cordova plugin add the InMobi SDK to cordova project.
 
 Usually it's used as dependency of other plugins.
