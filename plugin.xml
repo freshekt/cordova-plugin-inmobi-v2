@@ -15,13 +15,18 @@
     <engines>
         <engine name="cordova" version=">=3.0" />
     </engines>
-
+    <js-module name="InMobi" src="www/inmobi.js">
+        <clobbers target="cordova.plugins.inmobi" />
+    </js-module>
     <platform name="android">
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:name="com.inmobi.androidsdk.IMBrowserActivity"
-                      android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize"
-                      android:theme="@android:style/Theme.Translucent.NoTitleBar"
-                      android:hardwareAccelerated="true" />
+            <activity
+                            android:name="com.inmobi.rendering.InMobiAdActivity"
+                            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
+                            android:resizeableActivity="false"
+                            android:hardwareAccelerated="true"
+                            android:theme="@android:style/Theme.NoTitleBar"/>
+                            <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
           <uses-permission android:name="android.permission.INTERNET" />
@@ -41,10 +46,20 @@
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="CDVAdInMobiPlugin">
                 <param name="android-package" value="com.deineagentur.cordova.ad.CDVAdInMobiPlugin"/>
-                <param name="onload" value="true" />
             </feature>
         </config-file>
-        <source-file src="src/android/InMobi-6.2.3.jar" target-dir="libs" />
+        <source-file src="src/android/CDVAdInMobiPlugin.java" target-dir="src/cordova/plugin/CDVAdInMobiPlugin" />
+        <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
+        <framework src="com.google.android.gms:play-services-basement:16.1.0" />    
+        <framework src="com.google.android.material:material:1.0.0" />  
+        <framework src="androidx.appcompat:appcompat:1.0.0" />  
+        <framework src="androidx.recyclerview:recyclerview:1.0.0"/>
+        <framework src="com.inmobi.monetization:inmobi-ads:8.2.0" />
+        <framework src="com.google.android.gms:play-services-ads-identifier:17.0.0" />
+        <framework src="com.google.android.gms:play-services-location:16.0.0" />        
+        <framework src="androidx.browser:browser:1.0.0"/>
+        <framework src="com.squareup.picasso:picasso:2.71828" />
+        <framework src="androidx.multidex:multidex:1.0.3" />    
      </platform>
 
     <platform name="amazon-fireos">
