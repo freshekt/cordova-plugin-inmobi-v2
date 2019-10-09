@@ -1,6 +1,9 @@
 package com.deineagentur.cordova.ad;
 
+import java.util.Calendar;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
@@ -180,6 +183,22 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
                   case 21:
                       callbackContext.error("InMobi interstitial Ads failed to load: " + inMobiAdRequestStatus.getMessage());
                       fireAdEvent(EVENT_AD_FAILLOAD,AD_OBJECT_INTERSTITIAL,inMobiAdRequestStatus.getMessage());
+                      break;
+
+                  case 5:
+                  case 6:
+                  case 9:
+                      Timer time = new Timer();
+                      Calendar calendar = Calendar.getInstance();
+                      calendar.add(Calendar.SECOND,1);
+                      time.schedule(new TimerTask(){
+
+                          @Override
+                          public void run() {
+                                loadAdInterstitial(callbackContext,pId);
+                          }
+                      },calendar.getTime());
+                      Log.d(TAG,inMobiAdRequestStatus.getMessage());
                       break;
                   default:
                       Log.d(TAG,inMobiAdRequestStatus.getMessage());
