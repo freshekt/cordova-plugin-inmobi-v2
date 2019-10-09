@@ -57,7 +57,7 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
     private boolean mCanShowAd = false;
     private boolean isLoading = false;
     private boolean doSendLocationEachRequest = false;
-
+    private Timer time;
 
     @Override
     public boolean execute(String action, final JSONArray args, final CallbackContext callbackContext) throws JSONException {
@@ -150,11 +150,14 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
       long placementId = Long.parseLong(pId);
       if(!initialized){
       InterstitialAdEventListener mInterstitialListener = new InterstitialAdEventListener() {
-        // implementation for other events
+
+
+          // implementation for other events
         // onAdReceived, onAdLoaFailed, etc
         @Override
         public void onAdLoadSucceeded(InMobiInterstitial inMobiInterstitial) {
             super.onAdLoadSucceeded(inMobiInterstitial);
+            time.cancel();
           Log.d(TAG, "onAdLoadSucceeded can now be shown!");
           mCanShowAd = true;
           isLoading = false;
@@ -188,7 +191,8 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
                   case 5:
                   case 6:
                   case 9:
-                      Timer time = new Timer();
+                      time.cancel();
+                      time = new Timer();
                       Calendar calendar = Calendar.getInstance();
                       calendar.add(Calendar.SECOND,1);
                       time.schedule(new TimerTask(){
@@ -199,6 +203,7 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
                           }
                       },calendar.getTime());
                       Log.d(TAG,inMobiAdRequestStatus.getMessage());
+
                       break;
                   default:
                       Log.d(TAG,inMobiAdRequestStatus.getMessage());
