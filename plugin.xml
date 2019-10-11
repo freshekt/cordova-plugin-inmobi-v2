@@ -49,17 +49,7 @@
             </feature>
         </config-file>
         <source-file src="src/android/CDVAdInMobiPlugin.java" target-dir="src/cordova/plugin/CDVAdInMobiPlugin" />
-        <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
-        <framework src="com.google.android.gms:play-services-basement:16.1.0" />    
-        <framework src="com.google.android.material:material:1.0.0" />  
-        <framework src="androidx.appcompat:appcompat:1.0.0" />  
-        <framework src="androidx.recyclerview:recyclerview:1.0.0"/>
-        <framework src="com.inmobi.monetization:inmobi-ads:8.2.0" />
-        <framework src="com.google.android.gms:play-services-ads-identifier:17.0.0" />
-        <framework src="com.google.android.gms:play-services-location:16.0.0" />        
-        <framework src="androidx.browser:browser:1.0.0"/>
-        <framework src="com.squareup.picasso:picasso:2.71828" />
-        <framework src="androidx.multidex:multidex:1.0.3" />    
+        <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" /> 
      </platform>
 
     <platform name="amazon-fireos">
