@@ -178,7 +178,6 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
 
               switch(inMobiAdRequestStatus.getStatusCode().ordinal()) {
                   case 1:
-                  case 2:
                   case 3:
                   case 13:
                   case 14:
@@ -208,6 +207,7 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
 
                       break;
                   case 7:
+                  case 2:
                       callbackContext.success("InMobi interstitial Ads is loaded and ready to be displayed!");
                       fireAdEvent(EVENT_AD_LOADED,AD_OBJECT_INTERSTITIAL,"success");
                       break;
