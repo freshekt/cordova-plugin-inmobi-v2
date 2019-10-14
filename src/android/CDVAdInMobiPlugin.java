@@ -187,7 +187,8 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
                       callbackContext.error("InMobi interstitial Ads failed to load: " + inMobiAdRequestStatus.getMessage());
                       fireAdEvent(EVENT_AD_FAILLOAD,AD_OBJECT_INTERSTITIAL,inMobiAdRequestStatus.getMessage());
                       break;
-
+                  case 7:
+                  case 2:
                   case 5:
                   case 6:
                   case 9:
@@ -206,11 +207,7 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
                       Log.d(TAG,inMobiAdRequestStatus.getMessage());
 
                       break;
-                  case 7:
-                  case 2:
-                      callbackContext.success("InMobi interstitial Ads is loaded and ready to be displayed!");
-                      fireAdEvent(EVENT_AD_LOADED,AD_OBJECT_INTERSTITIAL,"success");
-                      break;
+                  
                   default:
                       Log.d(TAG,inMobiAdRequestStatus.getMessage());
                       return;
