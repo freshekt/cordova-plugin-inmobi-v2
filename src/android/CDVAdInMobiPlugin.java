@@ -196,7 +196,7 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
                       time.cancel();
                       time = new Timer();
                       Calendar calendar = Calendar.getInstance();
-                      calendar.add(Calendar.SECOND,1);
+                      calendar.add(Calendar.SECOND, 3);
                       time.schedule(new TimerTask(){
 
                           @Override
