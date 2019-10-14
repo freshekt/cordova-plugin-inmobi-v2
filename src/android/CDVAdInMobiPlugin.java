@@ -157,7 +157,8 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
         @Override
         public void onAdLoadSucceeded(InMobiInterstitial inMobiInterstitial) {
             super.onAdLoadSucceeded(inMobiInterstitial);
-            time.cancel();
+            if(time != null)
+             time.cancel();
           Log.d(TAG, "onAdLoadSucceeded can now be shown!");
           mCanShowAd = true;
           isLoading = false;
@@ -191,6 +192,7 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
                   case 5:
                   case 6:
                   case 9:
+                    if(time != null)
                       time.cancel();
                       time = new Timer();
                       Calendar calendar = Calendar.getInstance();
