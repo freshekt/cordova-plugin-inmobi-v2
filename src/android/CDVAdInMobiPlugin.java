@@ -207,6 +207,10 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
                       Log.d(TAG,inMobiAdRequestStatus.getMessage());
 
                       break;
+                  case 7:
+                      callbackContext.success("InMobi interstitial Ads is loaded and ready to be displayed!");
+                      fireAdEvent(EVENT_AD_LOADED,AD_OBJECT_INTERSTITIAL,"success");
+                      break;
                   default:
                       Log.d(TAG,inMobiAdRequestStatus.getMessage());
                       return;
