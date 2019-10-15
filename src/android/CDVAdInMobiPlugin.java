@@ -196,7 +196,7 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
                       time.cancel();
                       time = new Timer();
                       Calendar calendar = Calendar.getInstance();
-                      calendar.add(Calendar.SECOND, 3);
+                      calendar.add(Calendar.SECOND, 30);
                       time.schedule(new TimerTask(){
 
                           @Override
@@ -295,6 +295,8 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
                          InMobiSdk.setLocation(location);
                      }
                      if(!isLoading) {
+                        if(time != null)
+                         time.cancel();
                          interstitialAd.load();
                          isLoading = true;
                      }
@@ -303,12 +305,16 @@ public class CDVAdInMobiPlugin extends CordovaPlugin {
                  @Override
                  public void onFailure(@NonNull Exception e) {
                      if(!isLoading) {
+                        if(time != null)
+                        time.cancel();
                          interstitialAd.load();
                          isLoading = true;
                      };
                  }
              });
          } else {
+            if(time != null)
+            time.cancel();
              interstitialAd.load();
              isLoading = true;
          }
