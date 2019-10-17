@@ -29,19 +29,10 @@
                             <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
-          <uses-permission android:name="android.permission.INTERNET" />
-          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-          <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-          <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-          <uses-permission android:name="android.permission.CALL_PHONE" />
-          <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-          <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-          <uses-permission android:name="android.permission.VIBRATE" />
-          <uses-permission android:name="android.permission.RECORD_AUDIO" />
-          <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-          <uses-permission android:name="android.permission.READ_LOGS" />
-          <uses-permission android:name="android.permission.READ_CALENDAR"/>
-          <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
         </config-file>
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="CDVAdInMobiPlugin">
